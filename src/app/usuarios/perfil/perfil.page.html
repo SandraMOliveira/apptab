@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+          <ion-label>{{ user.name}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{ user.email}}</ion-label>
+        </ion-item>        
+    </ion-list>
+
+    <!-- botão endereços vai pra outra page -->
+    <ion-button size="large" color="secondary" fill="outline" [routerLink]="['/usuarios/enderecos']">Meus Endereços</ion-button>
+    <!-- click já é um método do ionic -->
+    <ion-button size ="large" color="medium" (click)="sair()">Sair</ion-button>
+
+    
+</ion-content>
