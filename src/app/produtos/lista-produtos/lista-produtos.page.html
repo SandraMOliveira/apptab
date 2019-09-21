@@ -9,6 +9,7 @@
       <ion-item> 
   
         <ion-label>Categoria</ion-label>
+        <!-- NgModel só listagem -->
         <ion-select (ionChange)="buscarProdutos()" [(ngModel)]="categoriaSelecionada">
           <ion-select-option value="" [selected]="true">Todas</ion-select-option>
           <!-- vale o que ele trazer da categoria.key -->
@@ -18,6 +19,7 @@
   
       </ion-item>
   
+      <!--  mostrando produto por produto,  -->
       <ion-item *ngFor="let produto of produtos | async" (click)="adicionarProduto(produto.key)">
         <ion-avatar slot="start" *ngIf="produto.img">
           <img [src]="produto.img" />
@@ -26,7 +28,9 @@
           <h1>{{ produto.nome }}</h1>
           <h2>{{ produto.categoriaNome }}</h2>
           <pre text-wrap>{{ produto.descricao }}</pre>
-          <!-- <app-valor [valor]="produto.preco"></app-valor> -->
+          <!-- span html -->
+          <!-- <span>{{ produto.preco | currency: 'BRL'}}</span> -->
+          <app-valor [valor]="produto.preco"></app-valor>
         </ion-label>
       </ion-item>
     </ion-list>

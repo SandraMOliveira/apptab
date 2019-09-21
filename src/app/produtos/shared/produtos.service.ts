@@ -32,6 +32,17 @@ getCategoriasAll() {
   )
 }
 
+//buscar produtos por uma key
+getByKey (key: string) {
+              // 'produtos/'+ ''
+  const path = `${FirebasePath.PRODUTOS}${key}`;
+  return this.db.object(path).snapshotChanges().pipe(
+    map(change => {
+      return ({ key: change.key, ...change.payload.val() });
+    })
+  )
+}
+
 
 
 

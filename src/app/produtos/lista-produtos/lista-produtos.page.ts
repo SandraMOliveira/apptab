@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ListaProdutosPage implements OnInit {
 produtos: Observable<any[]>;
 categorias: Observable<any[]>;
+categioriasSelecionada: string;
 
   constructor(private router: Router,
               private produtosService: ProdutosService) { }
@@ -20,4 +21,14 @@ categorias: Observable<any[]>;
     // carregar categorias
     this.categorias = this.produtosService.getCategoriasAll();
   }
+
+  buscarProdutos(){
+    this.produtos = this.produtosService.getAll(this.categioriasSelecionada);
+  }
+
+  //  método para adicionar item no carrinho, quando clica no produto
+  adicionarProduto(produtoKey: string){
+    this.router.navigate(['pedido/carrinho/novo=item/', produtoKey]);
+  }
+
 }
