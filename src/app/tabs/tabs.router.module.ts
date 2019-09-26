@@ -58,6 +58,11 @@ const routes: Routes = [
       {
         path: 'carrinho/novo-item/:key',
         loadChildren: '../pedidos/form-item-pedido/form-item-pedido.module#FormItemPedidoPageModule'
+      },
+      // rota para lista de produtos no carrinho
+      {
+        path: 'carrinho',
+        loadChildren: '../pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule'
       }
     ]
   },

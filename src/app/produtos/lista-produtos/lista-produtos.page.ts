@@ -1,3 +1,4 @@
+import { CarrinhoService } from './../../pedidos/shared/carrinho.service';
 import { ProdutosService } from './../shared/produtos.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,14 +13,21 @@ export class ListaProdutosPage implements OnInit {
 produtos: Observable<any[]>;
 categorias: Observable<any[]>;
 categoriaSelecionada: string;
+carrinhoPossuiItens: boolean = false;
 
   constructor(private router: Router,
-              private produtosService: ProdutosService) { }
+              private produtosService: ProdutosService,
+              private carrinhoService: CarrinhoService) { }
 
+    // para listar os produtos
   ngOnInit() {
     this.produtos = this.produtosService.getAll(null);
     // carregar categorias
     this.categorias = this.produtosService.getCategoriasAll();
+    // faz uma consulta e mostra se tem uma quantidade
+    this.carrinhoService.carrinhoPossuiItens().subscribe((existemItens: boolean) =>{
+      this.carrinhoPossuiItens = existemItens;
+    })
   }
 
   buscarProdutos(){

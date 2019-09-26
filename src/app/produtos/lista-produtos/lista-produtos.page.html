@@ -35,9 +35,12 @@
       </ion-item>
     </ion-list>
   
-    <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="carrinhoPossuiItens">
-      <ion-fab-button [routerLink]="['/pedido/carrinho']" color="secondary">
+    <!-- se a quantidade for >0 o ion fab vai aparecer, precisa estar logado e add um produto aí vc tem o carrinho -->
+    <!-- carrinho posuiItens está no service da sua classe -->
+    <!-- na sua classe ela cria uma variavel tipo bollean -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="carrinhoPossuiItens">
+      <ion-fab-button [routerLink]="['/pedido/carrinho']" color="primary">
         <ion-icon name="cart"></ion-icon>
       </ion-fab-button>
-    </ion-fab> -->
+    </ion-fab>
   </ion-content>

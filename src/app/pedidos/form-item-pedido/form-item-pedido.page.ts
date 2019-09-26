@@ -54,8 +54,10 @@ export class FormItemPedidoPage implements OnInit {
     })
   }
 
+  // quando digita diretamente na caixa de quantidade no formulário
     executaCalcularTotal(){
       this.atualizaTotal(this.form.value.quantidade);
+    // recebe valor pelo formulário
     }
 
     adicionarQuantidade(){
@@ -68,16 +70,28 @@ export class FormItemPedidoPage implements OnInit {
       let qtd = this.form.value.quantidade;
       qtd--;
       if(qtd <=0)
-        qtd=1;
-        
+      qtd=1;
       this.atualizaTotal(qtd);
 
     }
-  
+
     atualizaTotal(quantidade: number){
       this.total = this.produto.preco * quantidade;
       this.form.patchValue({quantidade: quantidade, total: this.total});
-  
+
+    }
+
+    onSubmit(){
+      if (this.form.valid) {
+        // insere o valor do formulário
+        this.carrinhoService.insert(this.form.value)
+        // se deu certo (then)
+        .then( () => {
+          this.toast.show('Produto adicionado com sucesso!!!');
+          this.router.navigate(['/tabs/produtos']);
+        })
+      }
+
     }
 
 }
