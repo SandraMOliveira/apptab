@@ -24,7 +24,7 @@ export class EnderecoService {
     const path = this.getEnderecosPath();
     return this.db.list(path);
   }
-
+// getEnderecoRef é construção do path
   getAll(){
     return this.getEnderecoRef().snapshotChanges().pipe(
       map(changes => {

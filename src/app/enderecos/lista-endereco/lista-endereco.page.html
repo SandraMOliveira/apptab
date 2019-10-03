@@ -7,6 +7,11 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- ngfor vai trazer os item e compor o endereço com todos os dados -->
+<!-- recebe de endereços e é assincrono -->
+<!-- chama o método(getEnderecoText) e passa o parametro (endereco) -->
+<!-- sliding contéudo listado na tela poder ser arrastado -->
+<!-- click vai para o -->
 <ion-content padding>
   <ion-list>
     <ion-item-sliding *ngFor="let endereco of enderecos | async">
@@ -16,11 +21,15 @@
         </ion-label>
       </ion-item>
 
+      <!-- icones que aparecem no final do endereço , quando arrasta -->
+      <!-- side (posição) aparecer no final "end" -->
+      <!-- trash icone lixeira -->
+      <!-- não mostra mas vem a key do endereço -->
       <ion-item-options side="end">
         <ion-item-option color="secondary" (click)="editar(endereco.key)">
           <ion-icon name="create"></ion-icon>
         </ion-item-option>
-        <ion-item-option color="danger" (click)="remover(endereco.key)">
+        <ion-item-option color="danger" (click)="remover(endereco)">
           <ion-icon name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
