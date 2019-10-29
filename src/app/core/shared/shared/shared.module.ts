@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ValorComponent } from '../valor/valor.component';
 
 @NgModule({
-  declarations: [ValorComponent],
+  declarations: [ValorComponent, ],
   imports: [
     CommonModule,
     IonicModule,
@@ -20,6 +20,6 @@ import { ValorComponent } from '../valor/valor.component';
     ReactiveFormsModule,
     ValorComponent
   ],
-  entryComponents: [ValorComponent]
+  entryComponents: [ValorComponent, ]
 })
 export class SharedModule { }

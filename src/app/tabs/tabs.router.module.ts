@@ -4,6 +4,7 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
+    // tabs/1produtos/2/3perfil
     path: 'tabs',
     component: TabsPage,
     children: [
@@ -71,9 +72,15 @@ const routes: Routes = [
       {
         path: 'carrinho',
         loadChildren: '../pedidos/lista-item-pedido/lista-item-pedido.module#ListaItemPedidoPageModule'
+      },
+      // rota para 
+      {
+        path: 'forma-pagamento',
+        loadChildren: '../pedidos/form-pagamento/form-pagamento.module#FormPagamentoPageModule'
       }
     ]
   },
+  // se for vazio cai na primeira rota (tabs)
   {
     path: '',
     redirectTo: '/tabs/produtos',

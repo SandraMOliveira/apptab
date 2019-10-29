@@ -14,7 +14,7 @@ import { ModalController } from '@ionic/angular';
 export class ListaEnderecoPage implements OnInit {
   enderecos: Observable<any[]>;
   @Input()
-  selecionarEndereço: boolean = false;
+  selecionarEndereco: boolean = false;
 
   constructor(private enderecoService: EnderecoService,
               private alert: AlertService,
@@ -43,7 +43,7 @@ export class ListaEnderecoPage implements OnInit {
   }
 
   editar(key: string) {
-    this.router.navigate(['/usuarios/enderecos/editar', key]);    
+    this.router.navigate(['/usuarios/enderecos/editar', key]);
   }
 
   remover(endereco: any) {
@@ -56,7 +56,7 @@ export class ListaEnderecoPage implements OnInit {
   }
 
   setEnderecoSelecionado(endereco: any) {
-    if (this.selecionarEndereço) {
+    if (this.selecionarEndereco) {
       const enderecoText = this.getEnderecoText(endereco);
       this.modalController.dismiss({ endereco: enderecoText });
     }
