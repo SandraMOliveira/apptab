@@ -17,7 +17,7 @@ const routes: Routes = [
   imports: [
     SharedModule,
     CommonModule,
-    FormsModule,   
+    FormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ListaProdutosPage]

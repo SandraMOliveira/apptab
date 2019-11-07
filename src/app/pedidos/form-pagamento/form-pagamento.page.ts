@@ -45,6 +45,7 @@ export class FormPagamentoPage implements OnInit {
     this.form = this.formBuilder.group({
       formaPagamento: [''],
       trocoPara: [''],
+      tipoCartao: [''],
       enderecoEntrega: [''],
       total: ['']
     });
